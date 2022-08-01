@@ -24,11 +24,11 @@ public class ProyectosService {
         return proyectosRepository.findById(id);
     }
 
-    public void Guardar(Proyectos proyectos){
+    public void save(Proyectos proyectos){
         proyectosRepository.save(proyectos);
     }
 
-    public void Borrar (int id){
+    public void delete(int id){
         proyectosRepository.deleteById(id);
     }
 

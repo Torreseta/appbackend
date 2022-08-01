@@ -8,9 +8,9 @@ public class ExperienciaDto implements Serializable{
     @NotBlank
     private String empresa;
     @NotBlank
-    private String img;
+    private String img_exp;
     @NotBlank
-    private String puesto;
+    private String cargo;
     @NotBlank
     private String inicio;
     @NotBlank
@@ -23,10 +23,10 @@ public class ExperienciaDto implements Serializable{
     public ExperienciaDto() {
     }
 
-    public ExperienciaDto(String empresa, String img, String puesto, String inicio, String fin, String provincia, String pais) {
+    public ExperienciaDto(String empresa, String img_exp, String cargo, String inicio, String fin, String provincia, String pais) {
         this.empresa = empresa;
-        this.img = img;
-        this.puesto = puesto;
+        this.img_exp = img_exp;
+        this.cargo = cargo;
         this.inicio = inicio;
         this.fin = fin;
         this.provincia = provincia;
@@ -41,20 +41,20 @@ public class ExperienciaDto implements Serializable{
         this.empresa = empresa;
     }
 
-    public String getImg() {
-        return img;
+    public String getImg_exp() {
+        return img_exp;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImg_exp(String img_exp) {
+        this.img_exp = img_exp;
     }
 
-    public String getPuesto() {
-        return puesto;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getInicio() {

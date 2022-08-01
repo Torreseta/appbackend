@@ -15,11 +15,11 @@ public class Experiencia implements Serializable{
     @Column(name="empresa", length=45,nullable=false)
     private String empresa;
 
-    @Column(name="img", length=1000,nullable=false)
-    private String img;
+    @Column(name="img_exp", length=1000,nullable=false)
+    private String img_exp;
 
-    @Column(name="puesto", length=45,nullable=false)
-    private String puesto;
+    @Column(name="cargo", length=45,nullable=false)
+    private String cargo;
 
     @Column(name="inicio", length=20,nullable=false)
     private String inicio;
@@ -37,21 +37,11 @@ public class Experiencia implements Serializable{
     public Experiencia() {
     }
 
-    public Experiencia(int id, String empresa, String img, String puesto, String inicio, String fin, String provincia, String pais) {
+    public Experiencia(int id, String empresa, String img_exp, String cargo, String inicio, String fin, String provincia, String pais) {
         this.id = id;
         this.empresa = empresa;
-        this.img = img;
-        this.puesto = puesto;
-        this.inicio = inicio;
-        this.fin = fin;
-        this.provincia = provincia;
-        this.pais = pais;
-    }
-
-    public Experiencia(String empresa, String img, String puesto, String inicio, String fin, String provincia, String pais) {
-        this.empresa = empresa;
-        this.img = img;
-        this.puesto = puesto;
+        this.img_exp = img_exp;
+        this.cargo = cargo;
         this.inicio = inicio;
         this.fin = fin;
         this.provincia = provincia;
@@ -74,20 +64,20 @@ public class Experiencia implements Serializable{
         this.empresa = empresa;
     }
 
-    public String getImg() {
-        return img;
+    public String getImg_exp() {
+        return img_exp;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImg_exp(String img_exp) {
+        this.img_exp = img_exp;
     }
 
-    public String getPuesto() {
-        return puesto;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getInicio() {
@@ -122,4 +112,5 @@ public class Experiencia implements Serializable{
         this.pais = pais;
     }
 
+    
 }

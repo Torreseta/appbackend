@@ -23,11 +23,11 @@ public class EducacionService {
         return educacionRepository.findById(id);
     }
 
-    public void Guardar(Educacion educacion){
+    public void save(Educacion educacion){
         educacionRepository.save(educacion);
     }
 
-    public void Borrar (int id){
+    public void delete(int id){
         educacionRepository.deleteById(id);
     }
 

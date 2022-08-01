@@ -24,12 +24,12 @@ public class ExperienciaService {
     public Optional<Experiencia> getOne(int id){
         return experienciaRepository.findById(id);
     }
-   
-    public void Guardar(Experiencia experiencia){
+
+    public void save(Experiencia experiencia){
         experienciaRepository.save(experiencia);
     }
 
-    public void Borrar (int id){
+    public void delete(int id){
         experienciaRepository.deleteById(id);
     }
 

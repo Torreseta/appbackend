@@ -12,20 +12,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/acercade")
+@RequestMapping({"/acercade"})/*entrellaves ({"/acercade"})*/
 @CrossOrigin(origins = "http://localhost:4200")
 public class AcercaDeController {
     
     @Autowired
     AcercaDeService acercadeService;
 
-    @GetMapping("/lista")
+    @GetMapping({"/lista"})
     public ResponseEntity<List<AcercaDe>> lista(){
         List<AcercaDe> lista = acercadeService.lista();
            return new ResponseEntity(lista, HttpStatus.OK);
     } 
 
-    @GetMapping("/detail/{id}")
+    @GetMapping({"/detail/{id}"})
     public ResponseEntity<AcercaDe> getById(@PathVariable("id") int id){
         if(!acercadeService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encuentra el registro") {}, HttpStatus.
@@ -34,30 +34,30 @@ NOT_FOUND);
             return new ResponseEntity(acercade, HttpStatus.OK);
     } 
 
-    @PostMapping("/create")
+    @PostMapping({"/create"})
     public ResponseEntity<?> create(@RequestBody AcercaDeDto acercadeDto){
         AcercaDe acercade = new AcercaDe();
-        acercade.setDescripcion(acercadeDto.getDescripcion());
+        acercade.setInfo(acercadeDto.getInfo());
         
-        acercadeService.Guardar(acercade);
-            return new ResponseEntity(new Mensaje("Se ha creado con exito") {}, HttpStatus.OK);
+        acercadeService.save(acercade);
+            return new ResponseEntity(new Mensaje("Se ha creado con exito"), HttpStatus.OK);
     } 
 
-    @PutMapping("/update/{id}")
+    @PutMapping({"/update/{id}"})
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody AcercaDeDto acercadeDto){
         
         AcercaDe acercade = acercadeService.getOne(id).get();
-        acercade.setDescripcion(acercadeDto.getDescripcion());
+        acercade.setInfo(acercadeDto.getInfo());
         
-        acercadeService.Guardar(acercade);
-            return new ResponseEntity(new Mensaje("Registro Actualizado") {}, HttpStatus.OK);
+        acercadeService.save(acercade);
+            return new ResponseEntity(new Mensaje("Registro Actualizado"), HttpStatus.OK);
     } 
 
-    @DeleteMapping("/borrar/{id}")
-    public ResponseEntity<?> borrar(@PathVariable("id")int id){
+    @DeleteMapping({"/delete/{id}"})
+    public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!acercadeService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encontro registro"), HttpStatus.NOT_FOUND);
-        acercadeService.Borrar(id);
+        acercadeService.delete(id);
             return new ResponseEntity(new Mensaje("Se ha eliminado"), HttpStatus.OK);
     }
 }

@@ -12,8 +12,8 @@ public class Proyectos implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="nombre", length=45,nullable=false)
-    private String nombre;
+    @Column(name="proyecto", length=45,nullable=false)
+    private String proyecto;
 
     @Column(name="img", length=1000,nullable=false)
     private String img;
@@ -24,24 +24,15 @@ public class Proyectos implements Serializable{
     @Column(name="descripcion", length=1000,nullable=false)
     private String descripcion;
 
-    
     @Column(name="link", length=1000,nullable=false)
     private String link;
 
     public Proyectos() {
     }
 
-    public Proyectos(int id, String nombre, String img, String fecha_realizacion, String descripcion, String link) {
+    public Proyectos(int id, String proyecto, String img, String fecha_realizacion, String descripcion, String link) {
         this.id = id;
-        this.nombre = nombre;
-        this.img = img;
-        this.fecha_realizacion = fecha_realizacion;
-        this.descripcion = descripcion;
-        this.link = link;
-    }
-
-    public Proyectos(String nombre, String img, String fecha_realizacion, String descripcion, String link) {
-        this.nombre = nombre;
+        this.proyecto = proyecto;
         this.img = img;
         this.fecha_realizacion = fecha_realizacion;
         this.descripcion = descripcion;
@@ -56,12 +47,12 @@ public class Proyectos implements Serializable{
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getProyecto() {
+        return proyecto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setProyecto(String proyecto) {
+        this.proyecto = proyecto;
     }
 
     public String getImg() {
@@ -96,4 +87,5 @@ public class Proyectos implements Serializable{
         this.link = link;
     }
 
+    
 }

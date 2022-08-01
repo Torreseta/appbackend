@@ -27,11 +27,6 @@ public class Hard implements Serializable{
         this.lenguaje = lenguaje;
     }
 
-    public Hard(String porcentaje, String lenguaje) {
-        this.porcentaje = porcentaje;
-        this.lenguaje = lenguaje;
-    }
-
     public int getId() {
         return id;
     }

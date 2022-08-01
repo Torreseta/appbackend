@@ -16,41 +16,32 @@ public class Header implements Serializable {
     @Column(name="img_banner", length=1000,nullable=false)
     private String img_banner;
     
-    @Column(name="perfil", length=45,nullable=false)
-    private String perfil;
-
     @Column(name="img_perfil", length=1000,nullable=false)
     private String img_perfil;
    
+    @Column(name="img_logo", length=1000,nullable=false)
+    private String img_logo;
+
     @Column(name="nombre", length=45,nullable=false)
     private String nombre;
 
     @Column(name="posicion", length=45,nullable=false)
     private String posicion;
 
-    @Column(name="titulo", length=45,nullable=false)
-    private String titulo;
+    @Column(name="puesto", length=45,nullable=false)
+    private String puesto;
 
     public Header() {
     }
 
-    public Header(int id, String img_banner, String perfil, String img_perfil, String nombre, String posicion, String titulo) {
+    public Header(int id, String img_banner, String img_perfil, String img_logo, String nombre, String posicion, String puesto) {
         this.id = id;
         this.img_banner = img_banner;
-        this.perfil = perfil;
         this.img_perfil = img_perfil;
+        this.img_logo = img_logo;
         this.nombre = nombre;
         this.posicion = posicion;
-        this.titulo = titulo;
-    }
-
-    public Header(String img_banner, String perfil, String img_perfil, String nombre, String posicion, String titulo) {
-        this.img_banner = img_banner;
-        this.perfil = perfil;
-        this.img_perfil = img_perfil;
-        this.nombre = nombre;
-        this.posicion = posicion;
-        this.titulo = titulo;
+        this.puesto = puesto;
     }
 
     public int getId() {
@@ -69,20 +60,20 @@ public class Header implements Serializable {
         this.img_banner = img_banner;
     }
 
-    public String getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
-    }
-
     public String getImg_perfil() {
         return img_perfil;
     }
 
     public void setImg_perfil(String img_perfil) {
         this.img_perfil = img_perfil;
+    }
+
+    public String getImg_logo() {
+        return img_logo;
+    }
+
+    public void setImg_logo(String img_logo) {
+        this.img_logo = img_logo;
     }
 
     public String getNombre() {
@@ -101,11 +92,13 @@ public class Header implements Serializable {
         this.posicion = posicion;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getPuesto() {
+        return puesto;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setPuesto(String puesto) {
+        this.puesto = puesto;
     }
+
+    
 }

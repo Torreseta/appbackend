@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 public class ProyectosDto implements Serializable{
 
     @NotBlank
-    private String nombre;
+    private String proyecto;
     @NotBlank
     private String img;
     @NotBlank
@@ -19,20 +19,20 @@ public class ProyectosDto implements Serializable{
     public ProyectosDto() {
     }
 
-    public ProyectosDto(String nombre, String img, String fecha_realizacion, String descripcion, String link) {
-        this.nombre = nombre;
+    public ProyectosDto(String proyecto, String img, String fecha_realizacion, String descripcion, String link) {
+        this.proyecto = proyecto;
         this.img = img;
         this.fecha_realizacion = fecha_realizacion;
         this.descripcion = descripcion;
         this.link = link;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getProyecto() {
+        return proyecto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setProyecto(String proyecto) {
+        this.proyecto = proyecto;
     }
 
     public String getImg() {

@@ -24,11 +24,11 @@ public class HardService {
         return hardRepository.findById(id);
     }
 
-    public void Guardar(Hard hard){
+    public void save(Hard hard){
         hardRepository.save(hard);
     }
 
-    public void Borrar (int id){
+    public void delete(int id){
         hardRepository.deleteById(id);
     }
 

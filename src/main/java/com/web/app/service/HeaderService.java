@@ -23,11 +23,11 @@ public class HeaderService {
         return headerRepository.findById(id);
     }
 
-    public void Guardar(Header header){
+    public void save(Header header){
         headerRepository.save(header);
     }
 
-    public void Borrar (int id){
+    public void delete(int id){
         headerRepository.deleteById(id);
     }
 

@@ -6,30 +6,22 @@ import javax.validation.constraints.NotBlank;
 public class EducacionDto implements Serializable{
     
     @NotBlank
-    private String logo_img;
-    @NotBlank
     private String institucion;
     @NotBlank
-    private String titulo;
+    private String logo_img;
     @NotBlank
     private String periodo;
+    @NotBlank
+    private String titulo;
 
     public EducacionDto() {
     }
 
-    public EducacionDto(String logo_img, String institucion, String titulo, String periodo) {
-        this.logo_img = logo_img;
+    public EducacionDto(String institucion, String logo_img, String periodo, String titulo) {
         this.institucion = institucion;
-        this.titulo = titulo;
-        this.periodo = periodo;
-    }
-
-    public String getLogo_img() {
-        return logo_img;
-    }
-
-    public void setLogo_img(String logo_img) {
         this.logo_img = logo_img;
+        this.periodo = periodo;
+        this.titulo = titulo;
     }
 
     public String getInstitucion() {
@@ -40,12 +32,12 @@ public class EducacionDto implements Serializable{
         this.institucion = institucion;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getLogo_img() {
+        return logo_img;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setLogo_img(String logo_img) {
+        this.logo_img = logo_img;
     }
 
     public String getPeriodo() {
@@ -55,5 +47,12 @@ public class EducacionDto implements Serializable{
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-   
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 }

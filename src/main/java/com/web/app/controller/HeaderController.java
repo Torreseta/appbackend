@@ -11,20 +11,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/header")
+@RequestMapping({"/header"})
 @CrossOrigin(origins = "http://localhost:4200")
 public class HeaderController {
     
     @Autowired
     HeaderService headerService;
 
-    @GetMapping("/lista")
+    @GetMapping({"/lista"})
     public ResponseEntity<List<Header>> lista(){
         List<Header> lista = headerService.lista();
         return new ResponseEntity(lista, HttpStatus.OK);
     } 
 
-    @GetMapping("/detail/{id}")
+    @GetMapping({"/detail/{id}"})
     public ResponseEntity<Header> getById(@PathVariable("id") int id){
         if(!headerService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encuentra el registro") {}, HttpStatus.
@@ -33,42 +33,42 @@ NOT_FOUND);
             return new ResponseEntity(header, HttpStatus.OK);
     } 
 
-    @PostMapping("/create")
+    @PostMapping({"/create"})
     public ResponseEntity<?> create(@RequestBody HeaderDto headerDto){
         Header header = new Header();
         
         header.setImg_banner (headerDto.getImg_banner());
-        header.setPerfil (headerDto.getPerfil());
         header.setImg_perfil (headerDto.getImg_perfil());
+        header.setImg_logo(headerDto.getImg_logo());
         header.setNombre (headerDto.getNombre());
         header.setPosicion (headerDto.getPosicion());
-        header.setTitulo (headerDto.getTitulo());
+        header.setPuesto (headerDto.getPuesto());
 
-        headerService.Guardar(header);
-        return new ResponseEntity(new Mensaje("Se ha creado con exito") {}, HttpStatus.OK);
+        headerService.save(header);
+        return new ResponseEntity(new Mensaje("Se ha creado con exito"), HttpStatus.OK);
     } 
 
-    @PutMapping("/update/{id}")
+    @PutMapping({"/update/{id}"})
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody HeaderDto headerDto){
         
         Header header = headerService.getOne(id).get();
         
         header.setImg_banner(headerDto.getImg_banner());
-        header.setPerfil(headerDto.getPerfil());
         header.setImg_perfil(headerDto.getImg_perfil());
+        header.setImg_logo(headerDto.getImg_logo());
         header.setNombre(headerDto.getNombre());
         header.setPosicion(headerDto.getPosicion());
-        header.setTitulo(headerDto.getTitulo());
+        header.setPuesto(headerDto.getPuesto());
 
-        headerService.Guardar(header);
+        headerService.save(header);
         return new ResponseEntity(new Mensaje("Registro Actualizado"), HttpStatus.OK);
     } 
 
-    @DeleteMapping("/borrar/{id}")
-    public ResponseEntity<?> borrar(@PathVariable("id")int id){
+    @DeleteMapping({"/delete/{id}"})
+    public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!headerService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encontro registro"), HttpStatus.NOT_FOUND);
-        headerService.Borrar(id);
+        headerService.delete(id);
         return new ResponseEntity(new Mensaje("Se ha eliminado"), HttpStatus.OK);
     }
 }

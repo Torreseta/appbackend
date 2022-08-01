@@ -6,20 +6,21 @@ import javax.persistence.*;
 @Entity
 @Table (name="acercade")
 public class AcercaDe implements Serializable{
+    
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="descripcion", length=1000,nullable=false)
-    private String descripcion;
+    @Column(name="info", length=1000,nullable=false)
+    private String info;
 
     public AcercaDe() {
     }
 
-    public AcercaDe(int id, String descripcion) {
+    public AcercaDe(int id, String info) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.info = info;
     }
 
     public int getId() {
@@ -30,11 +31,11 @@ public class AcercaDe implements Serializable{
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getInfo() {
+        return info;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

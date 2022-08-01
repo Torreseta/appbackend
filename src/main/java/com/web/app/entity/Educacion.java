@@ -12,34 +12,27 @@ public class Educacion implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="logo_img", length=1000,nullable=false)
-    private String logo_img;
-
     @Column(name="institucion", length=100,nullable=false)
     private String institucion;
 
-    @Column(name="titulo", length=100,nullable=false)
-    private String titulo;
+    @Column(name="logo_img", length=1000,nullable=false)
+    private String logo_img;
 
     @Column(name="periodo", length=20,nullable=false)
     private String periodo;
 
+    @Column(name="titulo", length=100,nullable=false)
+    private String titulo;
+
     public Educacion() {
     }
 
-    public Educacion(int id, String logo_img, String institucion, String titulo, String periodo) {
+    public Educacion(int id, String institucion, String logo_img, String periodo, String titulo) {
         this.id = id;
-        this.logo_img = logo_img;
         this.institucion = institucion;
-        this.titulo = titulo;
-        this.periodo = periodo;
-    }
-
-    public Educacion(String logo_img, String institucion, String titulo, String periodo) {
         this.logo_img = logo_img;
-        this.institucion = institucion;
-        this.titulo = titulo;
         this.periodo = periodo;
+        this.titulo = titulo;
     }
 
     public int getId() {
@@ -50,14 +43,6 @@ public class Educacion implements Serializable{
         this.id = id;
     }
 
-    public String getLogo_img() {
-        return logo_img;
-    }
-
-    public void setLogo_img(String logo_img) {
-        this.logo_img = logo_img;
-    }
-
     public String getInstitucion() {
         return institucion;
     }
@@ -66,12 +51,12 @@ public class Educacion implements Serializable{
         this.institucion = institucion;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getLogo_img() {
+        return logo_img;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setLogo_img(String logo_img) {
+        this.logo_img = logo_img;
     }
 
     public String getPeriodo() {
@@ -82,4 +67,13 @@ public class Educacion implements Serializable{
         this.periodo = periodo;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    
 }

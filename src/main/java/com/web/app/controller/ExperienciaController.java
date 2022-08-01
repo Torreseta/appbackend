@@ -1,6 +1,5 @@
 package com.web.app.controller;
 
-
 import com.web.app.dto.ExperienciaDto;
 import com.web.app.dto.Mensaje;
 import com.web.app.entity.Experiencia;
@@ -13,20 +12,20 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/experiencia")
+@RequestMapping({"/experiencia"})
 @CrossOrigin(origins = "http://localhost:4200")
 public class ExperienciaController {
     
     @Autowired
     ExperienciaService experienciaService;
 
-    @GetMapping("/lista")
+    @GetMapping({"/lista"})
     public ResponseEntity<List<Experiencia>> lista(){
         List<Experiencia> lista = experienciaService.lista();
         return new ResponseEntity(lista, HttpStatus.OK);
     } 
 
-    @GetMapping("/detail/{id}")
+    @GetMapping({"/detail/{id}"})
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!experienciaService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encuentra el registro") {}, HttpStatus.
@@ -35,39 +34,39 @@ NOT_FOUND);
             return new ResponseEntity(experiencia, HttpStatus.OK);
     } 
 
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody ExperienciaDto experienciaDto){
+    @PostMapping({"/create"})
+     public ResponseEntity<?> create(@RequestBody ExperienciaDto experienciaDto){
         Experiencia experiencia = new Experiencia();
         experiencia.setEmpresa(experienciaDto.getEmpresa());
-        experiencia.setImg(experienciaDto.getImg());
-        experiencia.setPuesto(experienciaDto.getPuesto());
+        experiencia.setImg_exp(experienciaDto.getImg_exp());
+        experiencia.setCargo(experienciaDto.getCargo());
         experiencia.setInicio(experienciaDto.getInicio());
         experiencia.setFin(experienciaDto.getFin());
         experiencia.setProvincia(experienciaDto.getProvincia());
         experiencia.setPais(experienciaDto.getPais());
-        experienciaService.Guardar(experiencia);
-        return new ResponseEntity(new Mensaje("Se ha creado con exito") {}, HttpStatus.OK);
+        experienciaService.save(experiencia);
+            return new ResponseEntity(new Mensaje("Se ha creado con exito"), HttpStatus.OK);
     } 
 
-    @PutMapping("/update/{id}")
+    @PutMapping({"/update/{id}"})
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody ExperienciaDto experienciaDto){
         Experiencia experiencia = experienciaService.getOne(id).get();
         experiencia.setEmpresa(experienciaDto.getEmpresa());
-        experiencia.setImg(experienciaDto.getImg());
-        experiencia.setPuesto(experienciaDto.getPuesto());
+        experiencia.setImg_exp(experienciaDto.getImg_exp());
+        experiencia.setCargo(experienciaDto.getCargo());
         experiencia.setInicio(experienciaDto.getInicio());
         experiencia.setFin(experienciaDto.getFin());
         experiencia.setProvincia(experienciaDto.getProvincia());
         experiencia.setPais(experienciaDto.getPais());
-        experienciaService.Guardar(experiencia);
-        return new ResponseEntity(new Mensaje("Registro Actualizado") {}, HttpStatus.OK);
+        experienciaService.save(experiencia);
+            return new ResponseEntity(new Mensaje("Registro Actualizado"), HttpStatus.OK);
     } 
 
-    @DeleteMapping("/borrar/{id}")
-    public ResponseEntity<?> borrar(@PathVariable("id")int id){
+    @DeleteMapping({"/delete/{id}"})
+    public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!experienciaService.ExistsById(id))
             return new ResponseEntity(new Mensaje("No se encontro registro"), HttpStatus.NOT_FOUND);
-        experienciaService.Borrar(id);
-            return new ResponseEntity(new Mensaje("Se ha eliminado") {}, HttpStatus.OK);
+        experienciaService.delete(id);
+            return new ResponseEntity(new Mensaje("Se ha eliminado"), HttpStatus.OK);
     }
 }

@@ -6,21 +6,21 @@ import javax.validation.constraints.NotBlank;
 public class AcercaDeDto implements Serializable {
     
     @NotBlank
-    private String descripcion;
+    private String info;
 
     public AcercaDeDto() {
     }
 
-    public AcercaDeDto(String descripcion) {
-        this.descripcion = descripcion;
+    public AcercaDeDto(String info) {
+        this.info = info;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getInfo() {
+        return info;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setInfo(String info) {
+        this.info = info;
     }
 }
 
